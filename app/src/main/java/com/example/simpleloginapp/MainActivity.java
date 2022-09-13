@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.simpleloginapp.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,17 +19,19 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
     public EditText emailId, password;
     Button buttonSignUp;
     TextView textViewSignIn;
-    FirebaseAuth mFirebaseAuth;
+    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
         emailId = findViewById(R.id.editTextUser);
         password = findViewById(R.id.editTextPassword);
         buttonSignUp = findViewById(R.id.buttonSignIn);
