@@ -8,27 +8,26 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="291dp"
-        android:layout_height="42dp"
-        android:text="Welcome! You are logged in"
-        android:textColor="@color/Black"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/logout"
+        android:id="@+id/messageTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:background="@drawable/button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/message_home"
+        android:textColor="@color/Black"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642" />
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prompt_logout"
+        android:background="@drawable/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messageTV"
+        android:layout_marginTop="64dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

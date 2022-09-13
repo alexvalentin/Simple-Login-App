@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Simple Login App</string>
+    <string name="mainPageTitle">Main Page</string>
+    <string name="loginPageTitle">Login Page</string>
+    <string name="prompt_email">Email Address</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_sign_up">Sign Up</string>
+    <string name="prompt_sign_in">Sign In</string>
+    <string name="prompt_logout">Log Out</string>
+    <string name="message_home">Welcome! You are logged in!</string>
+    <string name="already_text">Already have an account? Sign in here.</string>
+    <string name="not_registered_text">Not registered? Sign up here.</string>
 </resources>
