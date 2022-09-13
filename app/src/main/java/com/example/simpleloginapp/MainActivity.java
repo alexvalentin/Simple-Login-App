@@ -6,9 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.simpleloginapp.databinding.ActivityMainBinding;
@@ -20,10 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    public EditText emailId, password;
-    Button buttonSignUp;
-    TextView textViewSignIn;
-    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();;
+    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,28 +26,20 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        emailId = findViewById(R.id.editTextUser);
-        password = findViewById(R.id.editTextPassword);
-        buttonSignUp = findViewById(R.id.buttonSignIn);
-
-        textViewSignIn = findViewById(R.id.textViewtoSignUp);
-
-        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String email = emailId.getText().toString();
-                String pass = password.getText().toString();
+                String email = binding.emailET.getText().toString();
+                String pass = binding.passwordET.getText().toString();
 
                 if (email.isEmpty()) {
-                    emailId.setError("Please enter email id");
-                    emailId.requestFocus();
+                    binding.emailET.setError("Please enter email id");
+                    binding.emailET.requestFocus();
                 } else if (pass.isEmpty()) {
-                    password.setError("Please enter your password");
-                    password.requestFocus();
-                } else if (email.isEmpty() && pass.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Field are Empty!", Toast.LENGTH_SHORT).show();
-                } else if (!(email.isEmpty() && pass.isEmpty())) {
+                    binding.passwordET.setError("Please enter your password");
+                    binding.passwordET.requestFocus();
+                } else {
                     mFirebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -65,15 +51,11 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-                } else {
-                    Toast.makeText(MainActivity.this, "Error ocurred!", Toast.LENGTH_SHORT).show();
-
                 }
-
             }
         });
 
-        textViewSignIn.setOnClickListener(new View.OnClickListener() {
+        binding.goToSignInTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
